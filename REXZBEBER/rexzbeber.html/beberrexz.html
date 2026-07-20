@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RexzBebertha</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        /* Reset dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fcf8f5; /* Krem pastel lembut */
+            color: #4a4a4a;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 3rem 1rem;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 3.5rem;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.8rem;
+            color: #d16b7b; /* Pink dusty romantis */
+            margin-bottom: 0.5rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            font-weight: 300;
+            letter-spacing: 1px;
+            color: #8c8c8c;
+        }
+
+        /* Kontainer Utama Galeri */
+        .gallery-wrapper {
+            max-width: 1100px;
+            width: 100%;
+            display: block; /* Hindari flex/grid pada body/wrapper utama agar layout stabil */
+            margin: 0 auto;
+        }
+
+        /* Baris Atas: 2 Foto */
+        .row-top {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .row-top .gallery-item {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        /* Baris Bawah: 4 Foto */
+        .row-bottom {
+            display: table;
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: separate;
+            border-spacing: 1.5rem;
+        }
+
+        .row-bottom .gallery-item {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        /* Kartu Polaroid */
+        .polaroid-card {
+            background: #ffffff;
+            padding: 15px 15px 22px 15px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+            border-radius: 4px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+        }
+
+        /* Variasi rotasi alami ala foto tempel */
+        .row-top .gallery-item:nth-child(1) .polaroid-card { transform: rotate(-1.5deg); }
+        .row-top .gallery-item:nth-child(2) .polaroid-card { transform: rotate(1.5deg); }
+        
+        .row-bottom .gallery-item:nth-child(1) .polaroid-card { transform: rotate(-2deg); }
+        .row-bottom .gallery-item:nth-child(2) .polaroid-card { transform: rotate(1deg); }
+        .row-bottom .gallery-item:nth-child(3) .polaroid-card { transform: rotate(-1deg); }
+        .row-bottom .gallery-item:nth-child(4) .polaroid-card { transform: rotate(2deg); }
+
+        /* Efek Hover */
+        .polaroid-card:hover {
+            transform: scale(1.05) rotate(0deg) translateY(-8px) !important;
+            box-shadow: 0 15px 35px rgba(209, 107, 123, 0.18);
+            z-index: 10;
+        }
+
+        /* Pembungkus Gambar */
+        .image-container {
+            width: 100%;
+            overflow: hidden;
+            border-radius: 2px;
+            background-color: #f3f3f3;
+        }
+
+        /* Tinggi kustom agar proporsional */
+        .row-top .image-container {
+            height: 340px;
+        }
+
+        .row-bottom .image-container {
+            height: 200px;
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+            display: block;
+        }
+
+        .polaroid-card:hover .image-container img {
+            transform: scale(1.08);
+        }
+
+        /* Caption Teks */
+        .caption {
+            font-family: 'Dancing Script', cursive;
+            text-align: center;
+            color: #555555;
+            margin-top: 15px;
+            word-wrap: break-word;
+        }
+
+        .row-top .caption {
+            font-size: 1.8rem;
+        }
+
+        .row-bottom .caption {
+            font-size: 1.4rem;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 5rem;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            letter-spacing: 1px;
+        }
+
+        /* Responsif untuk layar hp/kecil */
+        @media (max-width: 768px) {
+            .row-top, .row-bottom {
+                display: block;
+                width: 100%;
+            }
+            .row-top .gallery-item, .row-bottom .gallery-item {
+                display: block;
+                width: 100%;
+                margin-bottom: 2rem;
+            }
+            .row-top .image-container, .row-bottom .image-container {
+                height: 280px;
+            }
+            .polaroid-card {
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <h1>A little gratitude for the best duo</h1>
+        <p>Thank you for being here and for always encouraging me every single day. 
+            Your support, your kind words, and your belief in me mean more than you know. 
+            No matter how difficult things get, you always remind me to keep going and never give up.
+            I'm truly grateful to have someone like you in my life. 
+            Thank you for making my days brighter and my heart a little stronger. 🤍
+        </p>
+    </header>
+
+    <div class="gallery-wrapper">
+        
+        <!-- BARIS ATAS: 2 Foto Besar -->
+        <div class="row-top">
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto6.jpeg" alt="Momen Terindah 1">
+                    </div>
+                    <div class="caption">Rexz Loskon</div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto7.jpeg" alt="Momen Terindah 2">
+                    </div>
+                    <div class="caption">Bertha Basil</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- BARIS BAWAH: 4 Foto Mini -->
+        <div class="row-bottom">
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto10.jpeg" alt="Momen Terindah 3">
+                    </div>
+                    <div class="caption">Makasi atas semua hal yang lu kasih ke gua rexz, 
+                        gua selalu ketawa, dihargai, diterima dengan baik
+                        bahkan dari hal konyol, sedih, dan bahagia gua lu terima semua.
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto8.jpeg" alt="Momen Terindah 4">
+                    </div>
+                    <div class="caption">Thank you for always believing in me, 
+                        being proud of me, and cheering me on. 
+                        I'm truly grateful to have a friend like you. Gua merasa hasil kerja, capek, ngeluh gua terbayarkan
+                        dengan rasa bangga lu ke gua yang bener bener bikin gua selalu bilang "gua ternyata ada yang banggain" 
+                
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto9.jpeg" alt="Momen Terindah 5">
+                    </div>
+                    <div class="caption">Yang ini bener lucu, lu bener bener bikin gua seneng.
+                    Lu inget gua ketika gua suka alam entah itu laut, sunset, sunrise, bahkan tempat yang bikin tenang.
+                    Lu juga selalu bilang "nanti gua fotokan", makasi udah ngeusahain gua buat seneng ya rexxz
+
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-item">
+                <div class="polaroid-card">
+                    <div class="image-container">
+                        <img src="foto12.jpeg" alt="Momen Terindah 6">
+                    </div>
+                    <div class="caption">Gua bangga sama lu, kalau ada apa-apa selalu cerita ke gua ya,
+                        Lu jangan pernah ngerasa sendiri, gua disini yang bisa lu jadiin tempat cerita sepanjang hari lu.
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="footer">
+        <p>Berthaa &bull; 20 Juli 2026</p>
+    </footer>
+
+</body>
+</html>
